@@ -5,78 +5,106 @@ filetypes:
 patterns:
 
   # form data
-  - \s\$_FILES
-  - \s\$_GET
-  - \s\$_POST
-  - \s\$_REQUEST
+  - (^|\s*|[\)\(\.=\;])\$_FILES
+  - (^|\s*|[\)\(\.=\;])\$_GET
+  - (^|\s*|[\)\(\.=\;])\$_POST
+  - (^|\s*|[\)\(\.=\;])\$_REQUEST
 
   # globals
-  - \s\$GLOBALS
-  - \s\$_COOKIE
-  - \s\$_SERVER
-  - \s\$_SESSION
+  - (^|\s*|[\)\(\.=\;])\$GLOBALS
+  - (^|\s*|[\)\(\.=\;])\$_COOKIE
+  - (^|\s*|[\)\(\.=\;])\$_SERVER
+  - (^|\s*|[\)\(\.=\;])\$_SESSION
 
   # system commands
   - `
-  - \sexec\s*\(
-  - \spassthru\s*\(
-  - \sshell_exec\s*\(
-  - \ssystem\s*\(
+  - (^|\s*|[\)\(\.=\;])exec\s*\(
+  - (^|\s*|[\)\(\.=\;])passthru\s*\(
+  - (^|\s*|[\)\(\.=\;])shell_exec\s*\(
+  - (^|\s*|[\)\(\.=\;])system\s*\(
 
   # potentially dangerous functions
-  - \screate_function\s*\(
-  - \scurl_exec\s*\(
-  - \scurl_init\s*\(
-  - \seval\s*\(
-  - \sfile\s*\(
-  - \sfile_get_contents\s*\(
-  - \sfopen\s*\(
-  - \sfread\s*\(
-  - \sfsockopen\s*\(
-  - \spfsockopen\s*\(
-  - \spopen\s*\(
-  - \sproc_open\s*\(
-  - \sreadfile\s*\(
+  - (^|\s*|[\)\(\.=\;])create_function\s*\(
+  - (^|\s*|[\)\(\.=\;])curl_exec\s*\(
+  - (^|\s*|[\)\(\.=\;])curl_init\s*\(
+  - (^|\s*|[\)\(\.=\;])eval\s*\(
+  - (^|\s*|[\)\(\.=\;])file\s*\(
+  - (^|\s*|[\)\(\.=\;])file_get_contents\s*\(
+  - (^|\s*|[\)\(\.=\;])fopen\s*\(
+  - (^|\s*|[\)\(\.=\;])fread\s*\(
+  - (^|\s*|[\)\(\.=\;])fsockopen\s*\(
+  - (^|\s*|[\)\(\.=\;])pfsockopen\s*\(
+  - (^|\s*|[\)\(\.=\;])popen\s*\(
+  - (^|\s*|[\)\(\.=\;])expect_popen\s*\(
+  - (^|\s*|[\)\(\.=\;])pcntl_exec\s*\(
+  - (^|\s*|[\)\(\.=\;])proc_open\s*\(
+  - (^|\s*|[\)\(\.=\;])proc_close\s*\(
+  - (^|\s*|[\)\(\.=\;])readfile\s*\(
 
   # cryptographic functions
-  - \scrc32\s*\(
-  - \scrypt\s*\(
-  - \sgnupg_\s*\(
-  - \shash\s*\(
-  - \smcrypt_
-  - \smd5\s*\(
-  - \sopenssl_\s*\(
-  - \spassword_hash\s*\(
-  - \spassword_needs_rehash\s*\(
-  - \spassword_verify\s*\(
-  - \ssha1\s*\(
-  - \ssha1_file\s*\(
+  - (^|\s*|[\)\(\.=\;])crc32\s*\(
+  - (^|\s*|[\)\(\.=\;])crypt\s*\(
+  - (^|\s*|[\)\(\.=\;])gnupg_\s*\(
+  - (^|\s*|[\)\(\.=\;])hash\s*\(
+  - (^|\s*|[\)\(\.=\;])mcrypt_
+  - (^|\s*|[\)\(\.=\;])md5\s*\(
+  - (^|\s*|[\)\(\.=\;])openssl_\s*\(
+  - (^|\s*|[\)\(\.=\;])password_hash\s*\(
+  - (^|\s*|[\)\(\.=\;])password_needs_rehash\s*\(
+  - (^|\s*|[\)\(\.=\;])password_verify\s*\(
+  - (^|\s*|[\)\(\.=\;])sha1\s*\(
+  - (^|\s*|[\)\(\.=\;])sha1_file\s*\(
+  - (^|\s*|[\)\(\.=\;])mt_rand\s*\(
+  - (^|\s*|[\)\(\.=\;])srand\s*\(
+  - (^|\s*|[\)\(\.=\;])uniqid\s*\(
+  - (^|\s*|[\)\(\.=\;])CRYPT_
 
   # payload obfuscators
-  - \sbase64_decode\s*\(
-  - \sbase64_encode\s*\(
-  - \sbzcompress\s*\(
-  - \sbzdecompress\s*\(
-  - \sgzdeflate\s*\(
-  - \sgzdencode\s*\(
-  - \sgzdinflate\s*\(
-  - \sgzuncompress\s*\(
-  - \szlib_decode\s*\(
-  - \szlib_encode\s*\(
+  - (^|\s*|[\)\(\.=\;])base64_decode\s*\(
+  - (^|\s*|[\)\(\.=\;])base64_encode\s*\(
+  - (^|\s*|[\)\(\.=\;])bzcompress\s*\(
+  - (^|\s*|[\)\(\.=\;])bzdecompress\s*\(
+  - (^|\s*|[\)\(\.=\;])gzdeflate\s*\(
+  - (^|\s*|[\)\(\.=\;])gzdencode\s*\(
+  - (^|\s*|[\)\(\.=\;])gzdinflate\s*\(
+  - (^|\s*|[\)\(\.=\;])gzuncompress\s*\(
+  - (^|\s*|[\)\(\.=\;])zlib_decode\s*\(
+  - (^|\s*|[\)\(\.=\;])zlib_encode\s*\(
 
   # misc interesting
-  - \sassert\s*\(
-  - \sgoto
-  - \sinclude\s
-  - \sinclude_once\s
-  - \smail\s*\(
-  - \srequire\s
-  - \srequire_once\s
+  - (^|\s*|[\)\(\.=\;])assert\s*\(
+  - (^|\s*|[\)\(\.=\;])goto
+  - (^|\s*|[\)\(\.=\;])sha256\s*\(
+  - (^|\s*|[\)\(\.=\;])include\s
+  - (^|\s*|[\)\(\.=\;])include_once\s
+  - (^|\s*|[\)\(\.=\;])mail\s*\(
+  - (^|\s*|[\)\(\.=\;])require\s
+  - (^|\s*|[\)\(\.=\;])require_once\s
+  - (^|\s*|[\)\(\.=\;])register_tick_function\s*\(
+  - (^|\s*|[\)\(\.=\;])register_shutdown_function\s*\(
+  - (^|\s*|[\)\(\.=\;])dl\s*\(
 
   # database operations
-  - \smysql_
-  - \smysqli_
+  - (^|\s*|[\)\(\.=\;])mysql_
+  - (^|\s*|[\)\(\.=\;])mysqli_
 
+  # serialization
+  - (^|\s*|[\)\(\.=\;])n?serialize\s*\(
+  
   # markup injections
-  - \s<\?=
-  - \secho
+  - (^|\s*|[\)\(\.=\;])<\?=
+  - (^|\s*|[\)\(\.=\;])echo
+  
+  # XSS
+  - (^|\s*|[\)\(\.=\;])print
+  - (^|\s*|[\)\(\.=\;])exit
+  - (^|\s*|[\)\(\.=\;])die
+  - (^|\s*|[\)\(\.=\;])printf
+  - (^|\s*|[\)\(\.=\;])vprintf
+  - (^|\s*|[\)\(\.=\;])trigger_error
+  - (^|\s*|[\)\(\.=\;])user_error
+  - (^|\s*|[\)\(\.=\;])odbc_result_all
+  - (^|\s*|[\)\(\.=\;])ovrimos_result_all
+  - (^|\s*|[\)\(\.=\;])QUERY_STRING
+  - (^|\s*|[\)\(\.=\;])_VARS
+  - (^|\s*|[\)\(\.=\;])\$HTTP_POST_FILES 
