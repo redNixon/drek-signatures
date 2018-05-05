@@ -5,59 +5,59 @@ filetypes:
 patterns:
 
   # form data
-  - (^|\s*|[\)\(\.=\;])\$_FILES
-  - (^|\s*|[\)\(\.=\;])\$_GET
-  - (^|\s*|[\)\(\.=\;])\$_POST
-  - (^|\s*|[\)\(\.=\;])\$_REQUEST
+  - \$_FILES
+  - \$_GET
+  - \$_POST
+  - \$_REQUEST
 
   # globals
-  - (^|\s*|[\)\(\.=\;])\$GLOBALS
-  - (^|\s*|[\)\(\.=\;])\$_COOKIE
-  - (^|\s*|[\)\(\.=\;])\$_SERVER
-  - (^|\s*|[\)\(\.=\;])\$_SESSION
+  - \$GLOBALS
+  - \$_COOKIE
+  - \$_SERVER
+  - \$_SESSION
 
   # system commands
   - `
-  - (^|\s*|[\)\(\.=\;])exec\s*\(
-  - (^|\s*|[\)\(\.=\;])passthru\s*\(
-  - (^|\s*|[\)\(\.=\;])shell_exec\s*\(
-  - (^|\s*|[\)\(\.=\;])system\s*\(
+  - exec\s*\(
+  - passthru\s*\(
+  - shell_exec\s*\(
+  - system\s*\(
 
   # potentially dangerous functions
-  - (^|\s*|[\)\(\.=\;])create_function\s*\(
-  - (^|\s*|[\)\(\.=\;])curl_exec\s*\(
-  - (^|\s*|[\)\(\.=\;])curl_init\s*\(
-  - (^|\s*|[\)\(\.=\;])eval\s*\(
-  - (^|\s*|[\)\(\.=\;])file\s*\(
-  - (^|\s*|[\)\(\.=\;])file_get_contents\s*\(
-  - (^|\s*|[\)\(\.=\;])fopen\s*\(
-  - (^|\s*|[\)\(\.=\;])fread\s*\(
-  - (^|\s*|[\)\(\.=\;])fsockopen\s*\(
-  - (^|\s*|[\)\(\.=\;])pfsockopen\s*\(
-  - (^|\s*|[\)\(\.=\;])popen\s*\(
-  - (^|\s*|[\)\(\.=\;])expect_popen\s*\(
-  - (^|\s*|[\)\(\.=\;])pcntl_exec\s*\(
-  - (^|\s*|[\)\(\.=\;])proc_open\s*\(
-  - (^|\s*|[\)\(\.=\;])proc_close\s*\(
-  - (^|\s*|[\)\(\.=\;])readfile\s*\(
+  - create_function\s*\(
+  - curl_exec\s*\(
+  - curl_init\s*\(
+  - eval\s*\(
+  - file\s*\(
+  - file_get_contents\s*\(
+  - fopen\s*\(
+  - fread\s*\(
+  - fsockopen\s*\(
+  - pfsockopen\s*\(
+  - popen\s*\(
+  - expect_popen\s*\(
+  - pcntl_exec\s*\(
+  - proc_open\s*\(
+  - proc_close\s*\(
+  - readfile\s*\(
 
   # cryptographic functions
-  - (^|\s*|[\)\(\.=\;])crc32\s*\(
-  - (^|\s*|[\)\(\.=\;])crypt\s*\(
-  - (^|\s*|[\)\(\.=\;])gnupg_\s*\(
-  - (^|\s*|[\)\(\.=\;])hash\s*\(
-  - (^|\s*|[\)\(\.=\;])mcrypt_
-  - (^|\s*|[\)\(\.=\;])md5\s*\(
-  - (^|\s*|[\)\(\.=\;])openssl_\s*\(
-  - (^|\s*|[\)\(\.=\;])password_hash\s*\(
-  - (^|\s*|[\)\(\.=\;])password_needs_rehash\s*\(
-  - (^|\s*|[\)\(\.=\;])password_verify\s*\(
-  - (^|\s*|[\)\(\.=\;])sha1\s*\(
-  - (^|\s*|[\)\(\.=\;])sha1_file\s*\(
-  - (^|\s*|[\)\(\.=\;])mt_rand\s*\(
-  - (^|\s*|[\)\(\.=\;])srand\s*\(
-  - (^|\s*|[\)\(\.=\;])uniqid\s*\(
-  - (^|\s*|[\)\(\.=\;])CRYPT_
+  - crc32\s*\(
+  - crypt\s*\(
+  - gnupg_\s*\(
+  - hash\s*\(
+  - mcrypt_
+  - md5\s*\(
+  - openssl_\s*\(
+  - password_hash\s*\(
+  - password_needs_rehash\s*\(
+  - password_verify\s*\(
+  - sha1\s*\(
+  - sha1_file\s*\(
+  - mt_rand\s*\(
+  - srand\s*\(
+  - uniqid\s*\(
+  - CRYPT_
 
   # payload obfuscators
   - (^|\s*|[\)\(\.=\;])base64_decode\s*\(
@@ -83,28 +83,29 @@ patterns:
   - (^|\s*|[\)\(\.=\;])register_tick_function\s*\(
   - (^|\s*|[\)\(\.=\;])register_shutdown_function\s*\(
   - (^|\s*|[\)\(\.=\;])dl\s*\(
-
+  - csrfCheckFilterOptions
+  - Input::\w
   # database operations
-  - (^|\s*|[\)\(\.=\;])mysql_
-  - (^|\s*|[\)\(\.=\;])mysqli_
+  - \smysql_
+  - \smysqli_
 
   # serialization
-  - (^|\s*|[\)\(\.=\;])n?serialize\s*\(
+  - unserialize\s*\(
   
   # markup injections
-  - (^|\s*|[\)\(\.=\;])<\?=
-  - (^|\s*|[\)\(\.=\;])echo
+  - <\?=
+  - echo\s*\(
   
   # XSS
   - (^|\s*|[\)\(\.=\;])print
   - (^|\s*|[\)\(\.=\;])exit
-  - (^|\s*|[\)\(\.=\;])die
-  - (^|\s*|[\)\(\.=\;])printf
-  - (^|\s*|[\)\(\.=\;])vprintf
-  - (^|\s*|[\)\(\.=\;])trigger_error
-  - (^|\s*|[\)\(\.=\;])user_error
-  - (^|\s*|[\)\(\.=\;])odbc_result_all
-  - (^|\s*|[\)\(\.=\;])ovrimos_result_all
-  - (^|\s*|[\)\(\.=\;])QUERY_STRING
-  - (^|\s*|[\)\(\.=\;])_VARS
-  - (^|\s*|[\)\(\.=\;])\$HTTP_POST_FILES 
+  - die
+  - printf
+  - vprintf
+  - trigger_error
+  - user_error
+  - odbc_result_all
+  - ovrimos_result_all
+  - QUERY_STRING
+  - _VARS
+  - \$HTTP_POST_FILES 
